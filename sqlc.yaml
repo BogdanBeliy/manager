@@ -1,0 +1,14 @@
+version: 2
+
+sql:
+  - engine: postgresql
+    queries: "database/queries/user.sql"
+    schema: "database/schema.sql"
+    gen:
+      go:
+        package: "users"
+        out: "internal/domain/models/users"
+        overrides:
+          - db_type: "vendor"
+            go_type:
+              type: "Vendor"
